@@ -15,12 +15,12 @@ public class ProcessLayerView extends JPanel {
     private List<ActivityView> activityViewList = new LinkedList<>();
 
     public ProcessLayerView(ProcessLayer processLayer) throws IOException {
-        setOpaque(false);
         this.processLayer = processLayer;
         for(Activity activity : processLayer.getActivityList()) {
             ActivityView activityView = new ActivityView(activity);
             activityViewList.add(activityView);
         }
+        setOpaque(false);
     }
 
     @Override
