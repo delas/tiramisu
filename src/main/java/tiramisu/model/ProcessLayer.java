@@ -9,6 +9,8 @@ public class ProcessLayer implements ILayer {
 
     @Getter
     private List<Activity> activityList = new LinkedList<>();
+    @Getter
+    private List<Edge> edgesList = new LinkedList<>();
 
     public void addActivity(Activity activity) {
         activityList.add(activity);
