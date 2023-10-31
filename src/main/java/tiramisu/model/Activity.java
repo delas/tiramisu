@@ -1,6 +1,8 @@
 package tiramisu.model;
 
 import lombok.Getter;
+import lombok.Setter;
+import tiramisu.view.ActivityView;
 
 import java.io.File;
 import java.util.Random;
@@ -18,16 +20,23 @@ public class Activity {
     private int y;
     @Getter
     private double intensity;
+    @Getter @Setter
+    private ActivityView view;
 
-    public Activity(String pictogram, String label, int x, int y) {
+    public Activity(String pictogram, String label, int x, int y, double intensity) {
         this.pictogram = pictogram;
         this.label = label;
         this.x = x;
         this.y = y;
-        this.intensity = new Random().nextDouble();
+        this.intensity = intensity;
     }
 
-    public Activity(String label, int x, int y) {
-        this(null, label, x, y);
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Activity) {
+            Activity other = (Activity) obj;
+            return id.equals(other.id);
+        }
+        return false;
     }
 }

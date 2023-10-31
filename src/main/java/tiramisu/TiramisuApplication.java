@@ -1,25 +1,35 @@
 package tiramisu;
 
-import tiramisu.model.Activity;
-import tiramisu.model.Backdrop;
-import tiramisu.model.ProcessLayer;
-import tiramisu.model.Tiramisu;
+import tiramisu.model.*;
 import tiramisu.view.BackdropView;
 import tiramisu.view.TiramisuView;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.util.Random;
 
 public class TiramisuApplication {
     public static void main(String args[]) throws IOException {
 
+        Random r = new Random();
+
+        Activity entrance = new Activity("C:\\Users\\andbur\\Desktop\\entrance.png", "Entrance", 640, 60, r.nextDouble());
+        Activity living = new Activity("C:\\Users\\andbur\\Desktop\\living.png", "Living", 708, 500, r.nextDouble());
+        Activity bedroom = new Activity("C:\\Users\\andbur\\Desktop\\bed.png", "Bedroom", 36, 430, r.nextDouble());
+        Activity bathroom = new Activity("C:\\Users\\andbur\\Desktop\\bathroom.png", "Bathroom", 35, 70, r.nextDouble());
+        Activity kitchen = new Activity("C:\\Users\\andbur\\Desktop\\kitchen.png", "Kitchen", 775, 72, r.nextDouble());
+
         ProcessLayer processLayer = new ProcessLayer();
-        processLayer.addActivity(new Activity("C:\\Users\\andbur\\Desktop\\entrance.png", "Entrance", 640, 60));
-        processLayer.addActivity(new Activity("C:\\Users\\andbur\\Desktop\\living.png", "Living", 708, 500));
-        processLayer.addActivity(new Activity("C:\\Users\\andbur\\Desktop\\bed.png", "Bedroom", 36, 430));
-        processLayer.addActivity(new Activity("C:\\Users\\andbur\\Desktop\\bathroom.png", "Bathroom", 35, 70));
-        processLayer.addActivity(new Activity("C:\\Users\\andbur\\Desktop\\kitchen.png", "Kitchen", 775, 72));
+        processLayer.addActivity(entrance);
+        processLayer.addActivity(living);
+        processLayer.addActivity(bedroom);
+        processLayer.addActivity(bathroom);
+        processLayer.addActivity(kitchen);
+
+        processLayer.addEdge(new Edge(bathroom, bedroom, 0));
+        processLayer.addEdge(new Edge(entrance, living, 1));
+        processLayer.addEdge(new Edge(bedroom, living, 0.5));
 
         Backdrop backdrop = new Backdrop();
         backdrop.setBackdropPicture("C:\\Users\\andbur\\Desktop\\Backdrop.png");
@@ -27,7 +37,6 @@ public class TiramisuApplication {
         Tiramisu tiramisu = new Tiramisu();
         tiramisu.setBackdrop(backdrop);
         tiramisu.setProcessLayer(processLayer);
-
 
         JFrame frame = new JFrame("Tiramisu Framework");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

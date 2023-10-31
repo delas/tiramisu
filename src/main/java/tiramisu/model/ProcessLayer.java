@@ -15,4 +15,8 @@ public class ProcessLayer implements ILayer {
     public void addActivity(Activity activity) {
         activityList.add(activity);
     }
+
+    public void addEdge(Edge edge) {
+        edgesList.add(edge);
+    }
 }

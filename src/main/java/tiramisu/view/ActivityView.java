@@ -26,6 +26,7 @@ public class ActivityView extends JPanel {
     private boolean mouseOver = false;
 
     public ActivityView(Activity activity) throws IOException {
+        activity.setView(this);
         image = ImageIO.read(new File(activity.getPictogram()));
         x = activity.getX();
         y = activity.getY();
