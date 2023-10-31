@@ -32,12 +32,22 @@ public class ActivityView extends JPanel {
         y = activity.getY();
         intensity = activity.getIntensity();
 
-        if (intensity > 0) {
+        if (!activity.isDeviation() && intensity > 0) {
             BufferedImage dyed = new BufferedImage(image.getWidth(), image.getHeight(),BufferedImage.TYPE_INT_ARGB);
             Graphics2D g = dyed.createGraphics();
             g.drawImage(image, 0, 0, null);
             g.setComposite(AlphaComposite.SrcAtop);
             g.setColor(new Color(0, 255, 0, (int) (intensity * 150)));
+            g.fillRect(0, 0, image.getWidth(), image.getHeight());
+            g.dispose();
+            image = dyed;
+        }
+        if (activity.isDeviation()) {
+            BufferedImage dyed = new BufferedImage(image.getWidth(), image.getHeight(),BufferedImage.TYPE_INT_ARGB);
+            Graphics2D g = dyed.createGraphics();
+            g.drawImage(image, 0, 0, null);
+            g.setComposite(AlphaComposite.SrcAtop);
+            g.setColor(new Color(255, 0, 0, 50));
             g.fillRect(0, 0, image.getWidth(), image.getHeight());
             g.dispose();
             image = dyed;

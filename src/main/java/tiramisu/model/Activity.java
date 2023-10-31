@@ -22,13 +22,16 @@ public class Activity {
     private double intensity;
     @Getter @Setter
     private ActivityView view;
+    @Getter @Setter
+    private boolean isDeviation = false;
 
-    public Activity(String pictogram, String label, int x, int y, double intensity) {
+    public Activity(String pictogram, String label, int x, int y, double intensity, boolean isDeviation) {
         this.pictogram = pictogram;
         this.label = label;
         this.x = x;
         this.y = y;
         this.intensity = intensity;
+        this.isDeviation = isDeviation;
     }
 
     @Override

@@ -39,13 +39,23 @@ public class EdgesLayerView extends JPanel {
 
             // the line needs to be shortened to avoid the arrowhead to get over the line
             double angle = Math.atan2(y2 - y1, x2 - x1);
-            int newEndX = (int) (x2 - size * Math.cos(angle));
-            int newEndY = (int) (y2 - size * Math.sin(angle));
+            int newEndX = (int) (x2 - size*2 * Math.cos(angle));
+            int newEndY = (int) (y2 - size*2 * Math.sin(angle));
+
+            int arrowEndX = (int) (x2 - size * Math.cos(angle));
+            int arrowEndY = (int) (y2 - size * Math.sin(angle));
+
+            int newStartX = (int) (x1 + size*2 * Math.cos(angle));
+            int newStartY = (int) (y1 + size*2 * Math.sin(angle));
 
             g2.setStroke(new BasicStroke(size, BasicStroke.CAP_BUTT, BasicStroke.JOIN_ROUND));
-            g2.setColor(Color.BLACK);
-            g2.drawLine(x1, y1, newEndX, newEndY);
-            drawArrowhead(g2, x1, y1, x2, y2, (int) (size*3));
+            if (e.isDeviation()) {
+                g2.setColor(Color.RED);
+            } else {
+                g2.setColor(Color.BLACK);
+            }
+            g2.drawLine(newStartX, newStartY, newEndX, newEndY);
+            drawArrowhead(g2, x1, y1, arrowEndX, arrowEndY, (int) (size*3));
         }
     }
 

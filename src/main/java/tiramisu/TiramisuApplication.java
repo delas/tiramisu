@@ -14,11 +14,11 @@ public class TiramisuApplication {
 
         Random r = new Random();
 
-        Activity entrance = new Activity("C:\\Users\\andbur\\Desktop\\entrance.png", "Entrance", 640, 60, r.nextDouble());
-        Activity living = new Activity("C:\\Users\\andbur\\Desktop\\living.png", "Living", 708, 500, r.nextDouble());
-        Activity bedroom = new Activity("C:\\Users\\andbur\\Desktop\\bed.png", "Bedroom", 36, 430, r.nextDouble());
-        Activity bathroom = new Activity("C:\\Users\\andbur\\Desktop\\bathroom.png", "Bathroom", 35, 70, r.nextDouble());
-        Activity kitchen = new Activity("C:\\Users\\andbur\\Desktop\\kitchen.png", "Kitchen", 775, 72, r.nextDouble());
+        Activity entrance = new Activity("C:\\Users\\andbur\\Desktop\\entrance.png", "Entrance", 640, 60, r.nextDouble(), false);
+        Activity living = new Activity("C:\\Users\\andbur\\Desktop\\living.png", "Living", 708, 500, r.nextDouble(), false);
+        Activity bedroom = new Activity("C:\\Users\\andbur\\Desktop\\bed.png", "Bedroom", 36, 430, r.nextDouble(), true);
+        Activity bathroom = new Activity("C:\\Users\\andbur\\Desktop\\bathroom.png", "Bathroom", 35, 70, r.nextDouble(), false);
+        Activity kitchen = new Activity("C:\\Users\\andbur\\Desktop\\kitchen.png", "Kitchen", 775, 72, r.nextDouble(), false);
 
         ProcessLayer processLayer = new ProcessLayer();
         processLayer.addActivity(entrance);
@@ -27,9 +27,10 @@ public class TiramisuApplication {
         processLayer.addActivity(bathroom);
         processLayer.addActivity(kitchen);
 
-        processLayer.addEdge(new Edge(bathroom, bedroom, 0));
-        processLayer.addEdge(new Edge(entrance, living, 1));
-        processLayer.addEdge(new Edge(bedroom, living, 0.5));
+        processLayer.addEdge(new Edge(bathroom, bedroom, 0, false));
+        processLayer.addEdge(new Edge(entrance, living, 1, false));
+        processLayer.addEdge(new Edge(bedroom, living, 0.5, true));
+        processLayer.addEdge(new Edge(kitchen, bedroom, 0.5, false));
 
         Backdrop backdrop = new Backdrop();
         backdrop.setBackdropPicture("C:\\Users\\andbur\\Desktop\\Backdrop.png");
