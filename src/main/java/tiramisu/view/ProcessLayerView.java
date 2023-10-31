@@ -16,20 +16,13 @@ public class ProcessLayerView extends JPanel {
 
     public ProcessLayerView(ProcessLayer processLayer) throws IOException {
         this.processLayer = processLayer;
+        setLayout(null);
+        setOpaque(false);
         for(Activity activity : processLayer.getActivityList()) {
             ActivityView activityView = new ActivityView(activity);
             activityViewList.add(activityView);
-        }
-        setOpaque(false);
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D)g;
-
-        for(ActivityView aw : activityViewList) {
-            g2.drawImage(aw.getImage(), aw.getX(), aw.getY(), this);
+            activityView.setBounds(activityView.getX(), activityView.getY(), activityView.getWidth(), activityView.getHeight());
+            add(activityView);
         }
     }
 }

@@ -11,7 +11,9 @@ public class Activity {
     @Getter
     private String pictogram;
     private String label;
+    @Getter
     private int x;
+    @Getter
     private int y;
 
     public Activity(String pictogram, String label, int x, int y) {

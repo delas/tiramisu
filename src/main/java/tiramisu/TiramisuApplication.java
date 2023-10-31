@@ -8,17 +8,18 @@ import tiramisu.view.BackdropView;
 import tiramisu.view.TiramisuView;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 
 public class TiramisuApplication {
     public static void main(String args[]) throws IOException {
 
         ProcessLayer processLayer = new ProcessLayer();
-        processLayer.addActivity(new Activity("C:\\Users\\andbur\\Desktop\\entrance.png", "Living", 0, 0));
-        processLayer.addActivity(new Activity("C:\\Users\\andbur\\Desktop\\living.png", "Living", 100, 100));
-        processLayer.addActivity(new Activity("C:\\Users\\andbur\\Desktop\\bed.png", "Living", 200, 100));
-        processLayer.addActivity(new Activity("C:\\Users\\andbur\\Desktop\\bathroom.png", "Living", 100, 200));
-        processLayer.addActivity(new Activity("C:\\Users\\andbur\\Desktop\\kitchen.png", "Living", 200, 200));
+        processLayer.addActivity(new Activity("C:\\Users\\andbur\\Desktop\\entrance.png", "Entrance", 640, 60));
+        processLayer.addActivity(new Activity("C:\\Users\\andbur\\Desktop\\living.png", "Living", 708, 500));
+        processLayer.addActivity(new Activity("C:\\Users\\andbur\\Desktop\\bed.png", "Bedroom", 36, 430));
+        processLayer.addActivity(new Activity("C:\\Users\\andbur\\Desktop\\bathroom.png", "Bathroom", 35, 70));
+        processLayer.addActivity(new Activity("C:\\Users\\andbur\\Desktop\\kitchen.png", "Kitchen", 775, 72));
 
         Backdrop backdrop = new Backdrop();
         backdrop.setBackdropPicture("C:\\Users\\andbur\\Desktop\\Backdrop.png");
