@@ -1,5 +1,6 @@
 package tiramisu.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,6 @@ import java.util.List;
 
 public class Backdrop {
 
-    @Getter @Setter
+    @Getter @Setter @JsonProperty("picture")
     private String backdropPicture;
 }

@@ -14,25 +14,15 @@ import java.util.Random;
 public class TiramisuApplication {
     public static void main(String args[]) throws Exception {
 
-        Random r = new Random();
+        TiramisuConfiguration configuration = TiramisuConfiguration.readFromJson("examples\\example1.json");
+        String dfg = "5\nbedroom\nkitchen\nbathroom\nentrance\nliving\n1\n0x1\n2\n3x1\n4x1\n0>1x1\n1>2x1\n2>3x1\n0>2x2\n2>1x2\n1>3x1\n1>4x1\n";
 
         Tiramisu tiramisu = new Tiramisu();
-        Backdrop backdrop = new Backdrop();
-        backdrop.setBackdropPicture("examples\\Backdrop.png");
+        Backdrop backdrop = configuration.getBackdrop();
         ProcessLayer processLayer = new ProcessLayer();
         tiramisu.setBackdrop(backdrop);
         tiramisu.setProcessLayer(processLayer);
-
-        Map<String, Activity> activities = new HashMap<>();
-        activities.put("entrance", new Activity("examples\\entrance.png", "Entrance", 640, 60, r.nextDouble(), false));
-        activities.put("living", new Activity("examples\\living.png", "Living", 708, 500, r.nextDouble(), false));
-        activities.put("bedroom", new Activity("examples\\bed.png", "Bedroom", 36, 430, r.nextDouble(), false));
-        activities.put("bathroom", new Activity("examples\\bathroom.png", "Bathroom", 35, 70, r.nextDouble(), false));
-        activities.put("kitchen", new Activity("examples\\kitchen.png", "Kitchen", 775, 72, r.nextDouble(), false));
-
-        // load the DFG
-        String dfg = "5\nbedroom\nkitchen\nbathroom\nentrance\nliving\n1\n0x1\n2\n3x1\n4x1\n0>1x1\n1>2x1\n2>3x1\n0>2x2\n2>1x2\n1>3x1\n1>4x1\n";
-        processLayer.loadFromDFG(dfg, activities);
+        processLayer.loadFromDFG(dfg, configuration.getActivitiesMap());
 
         JFrame frame = new JFrame("Tiramisu Framework");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -1,5 +1,6 @@
 package tiramisu.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import tiramisu.view.ActivityView;
@@ -11,27 +12,18 @@ import java.util.UUID;
 public class Activity {
 
     private UUID id = UUID.randomUUID();
-    @Getter
+    @Getter @Setter @JsonProperty("pictogram")
     private String pictogram;
-    @Getter
+    @Getter @Setter @JsonProperty("label")
     private String label;
-    @Getter
+    @Getter @Setter @JsonProperty("x")
     private int x;
-    @Getter
+    @Getter @Setter @JsonProperty("y")
     private int y;
     @Getter @Setter
-    private double intensity;
+    private double intensity = 0.0;
     @Getter @Setter
     private boolean isDeviation = false;
-
-    public Activity(String pictogram, String label, int x, int y, double intensity, boolean isDeviation) {
-        this.pictogram = pictogram;
-        this.label = label;
-        this.x = x;
-        this.y = y;
-        this.intensity = intensity;
-        this.isDeviation = isDeviation;
-    }
 
     @Override
     public boolean equals(Object obj) {

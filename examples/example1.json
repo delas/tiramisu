@@ -1,0 +1,13 @@
+{
+  "activities":
+  [
+    {"pictogram":"examples\\entrance.png",  "label":"entrance", "x":640,"y":60},
+    {"pictogram":"examples\\living.png",    "label":"living",   "x":708,"y":500},
+    {"pictogram":"examples\\bed.png",       "label":"bedroom",  "x":36,"y":430},
+    {"pictogram":"examples\\bathroom.png",  "label":"bathroom", "x":35,"y":70},
+    {"pictogram":"examples\\kitchen.png",   "label":"kitchen",  "x":775,"y":72}
+  ],
+  "backdrop":{
+    "picture":"examples\\backdrop.png"
+  }
+}
