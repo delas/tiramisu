@@ -19,7 +19,7 @@ public class Activity {
     private int x;
     @Getter
     private int y;
-    @Getter
+    @Getter @Setter
     private double intensity;
     @Getter @Setter
     private boolean isDeviation = false;

@@ -26,7 +26,7 @@ public class TiramisuApplication {
         Map<String, Activity> activities = new HashMap<>();
         activities.put("entrance", new Activity("C:\\Users\\andbur\\Desktop\\entrance.png", "Entrance", 640, 60, r.nextDouble(), false));
         activities.put("living", new Activity("C:\\Users\\andbur\\Desktop\\living.png", "Living", 708, 500, r.nextDouble(), false));
-        activities.put("bedroom", new Activity("C:\\Users\\andbur\\Desktop\\bed.png", "Bedroom", 36, 430, r.nextDouble(), true));
+        activities.put("bedroom", new Activity("C:\\Users\\andbur\\Desktop\\bed.png", "Bedroom", 36, 430, r.nextDouble(), false));
         activities.put("bathroom", new Activity("C:\\Users\\andbur\\Desktop\\bathroom.png", "Bathroom", 35, 70, r.nextDouble(), false));
         activities.put("kitchen", new Activity("C:\\Users\\andbur\\Desktop\\kitchen.png", "Kitchen", 775, 72, r.nextDouble(), false));
 
@@ -38,6 +38,7 @@ public class TiramisuApplication {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(new TiramisuView(tiramisu));
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setSize(1024, 768);
         frame.setVisible(true);
     }
 }
