@@ -14,9 +14,11 @@ import java.util.Arrays;
 public class EdgesLayerView extends JPanel {
 
     private ProcessLayer processLayer;
+    private ActivitiesLayerView activitiesLayerView;
 
-    public EdgesLayerView(ProcessLayer processLayer) {
+    public EdgesLayerView(ProcessLayer processLayer, ActivitiesLayerView activitiesLayerView) {
         this.processLayer = processLayer;
+        this.activitiesLayerView = activitiesLayerView;
         setLayout(null);
         setOpaque(false);
     }
@@ -30,8 +32,8 @@ public class EdgesLayerView extends JPanel {
                 RenderingHints.VALUE_ANTIALIAS_ON);
 
         for(Edge e : processLayer.getEdgesList()) {
-            ActivityView source = e.getSource().getView();
-            ActivityView target = e.getTarget().getView();
+            ActivityView source = activitiesLayerView.getActivities().get(e.getSource().getLabel());
+            ActivityView target = activitiesLayerView.getActivities().get(e.getTarget().getLabel());
 
             int x1 = source.getX() + source.getWidth() / 2;
             int y1 = source.getY() + source.getHeight() / 2;
@@ -58,8 +60,9 @@ public class EdgesLayerView extends JPanel {
             } else {
                 g2.setColor(Color.BLACK);
             }
-            int ctrlX = (int) ((newStartX + newEndX) / 2.1);
-            int ctrlY = (int) ((newStartY + newEndY) / 2.1);
+            // TODO: properly set control points, so that the arrowhead is always aligned with the end of the line
+            int ctrlX = (int) ((newStartX + newEndX) / 2);
+            int ctrlY = (int) ((newStartY + newEndY) / 2);
             QuadCurve2D line = new QuadCurve2D.Float(newStartX, newStartY, ctrlX, ctrlY, newEndX, newEndY);
             g2.draw(line);
             drawArrowhead(g2, ctrlX, ctrlY, arrowEndX, arrowEndY, (int) (size*2));

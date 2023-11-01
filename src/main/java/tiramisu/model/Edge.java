@@ -13,7 +13,10 @@ public class Edge {
     @Getter @Setter
     private boolean isDeviation;
 
-    public Edge(Activity source, Activity target, double intensity, boolean isDeviation) {
+    public Edge(Activity source, Activity target, double intensity, boolean isDeviation) throws Exception {
+        if (source == null || target == null) {
+            throw new Exception("Cannot create an edge with null source or target");
+        }
         this.source = source;
         this.target = target;
         this.intensity = intensity;

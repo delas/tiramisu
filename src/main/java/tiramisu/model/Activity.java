@@ -13,6 +13,7 @@ public class Activity {
     private UUID id = UUID.randomUUID();
     @Getter
     private String pictogram;
+    @Getter
     private String label;
     @Getter
     private int x;
@@ -20,8 +21,6 @@ public class Activity {
     private int y;
     @Getter
     private double intensity;
-    @Getter @Setter
-    private ActivityView view;
     @Getter @Setter
     private boolean isDeviation = false;
 

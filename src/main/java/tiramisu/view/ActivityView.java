@@ -26,7 +26,6 @@ public class ActivityView extends JPanel {
     private boolean mouseOver = false;
 
     public ActivityView(Activity activity) throws IOException {
-        activity.setView(this);
         image = ImageIO.read(new File(activity.getPictogram()));
         x = activity.getX();
         y = activity.getY();
@@ -90,7 +89,7 @@ public class ActivityView extends JPanel {
 
         g2.drawImage(image, 0, 0, this);
         if (mouseOver) {
-            g2.setColor(new Color(0, 0, 255));
+            g2.setColor(new Color(0, 0, 0));
             g2.setStroke(new BasicStroke(4));
             g2.drawRoundRect(2, 2, getWidth() - 4, getHeight() - 4, 30, 30);
         }
