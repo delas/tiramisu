@@ -26,8 +26,6 @@ public class ActivitiesLayerView extends JPanel {
             activities.put(activity.getLabel(), activityView);
             activityView.setBounds(activityView.getX(), activityView.getY(), activityView.getWidth(), activityView.getHeight());
             add(activityView);
-            System.out.println(processLayer.getActivityList().size());
         }
-        System.out.println("added all");
     }
 }
