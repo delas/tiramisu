@@ -28,6 +28,7 @@ public class TiramisuApplication {
         processLayer.addActivity(kitchen);
 
         processLayer.addEdge(new Edge(bathroom, bedroom, 0, false));
+        processLayer.addEdge(new Edge(bedroom, bathroom, 0, false));
         processLayer.addEdge(new Edge(entrance, living, 1, false));
         processLayer.addEdge(new Edge(bedroom, living, 0.5, true));
         processLayer.addEdge(new Edge(kitchen, bedroom, 0.5, false));
