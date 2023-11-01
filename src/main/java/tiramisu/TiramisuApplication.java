@@ -7,7 +7,10 @@ import tiramisu.view.TiramisuView;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -15,7 +18,7 @@ public class TiramisuApplication {
     public static void main(String args[]) throws Exception {
 
         TiramisuConfiguration configuration = TiramisuConfiguration.readFromJson("examples\\example1.json");
-        String dfg = "5\nbedroom\nkitchen\nbathroom\nentrance\nliving\n1\n0x1\n2\n3x1\n4x1\n0>1x1\n1>2x1\n2>3x1\n0>2x2\n2>1x2\n1>3x1\n1>4x1\n";
+        List<String> dfg = Files.readAllLines(Paths.get("examples\\example1.dfg"));
 
         Tiramisu tiramisu = new Tiramisu();
         Backdrop backdrop = configuration.getBackdrop();
