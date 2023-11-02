@@ -15,10 +15,12 @@ public class EdgesLayerView extends JPanel {
 
     private ProcessLayer processLayer;
     private ActivitiesLayerView activitiesLayerView;
+    private Color arrowColor;
 
-    public EdgesLayerView(ProcessLayer processLayer, ActivitiesLayerView activitiesLayerView) {
+    public EdgesLayerView(ProcessLayer processLayer, ActivitiesLayerView activitiesLayerView, Color arrowColor) {
         this.processLayer = processLayer;
         this.activitiesLayerView = activitiesLayerView;
+        this.arrowColor = arrowColor;
         setLayout(null);
         setOpaque(false);
     }
@@ -58,7 +60,7 @@ public class EdgesLayerView extends JPanel {
             if (e.isDeviation()) {
                 g2.setColor(Color.RED);
             } else {
-                g2.setColor(Color.BLACK);
+                g2.setColor(arrowColor);
             }
             // TODO: properly set control points, so that the arrowhead is always aligned with the end of the line
             int ctrlX = (int) ((newStartX + newEndX) / 2);

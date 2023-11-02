@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -18,6 +19,8 @@ public class TiramisuConfiguration {
     private List<Activity> activities = new LinkedList<>();
     @Getter @JsonProperty("backdrop")
     private Backdrop backdrop = new Backdrop();
+    @JsonProperty("arrowColor")
+    private String arrowColor = "#000000";
 
     private TiramisuConfiguration() { }
 
@@ -27,6 +30,10 @@ public class TiramisuConfiguration {
             activities.put(activity.getLabel(), activity);
         }
         return activities;
+    }
+
+    public Color getArrowColor() {
+        return Color.decode(arrowColor);
     }
 
     public static TiramisuConfiguration readFromJson(String filePath) throws IOException {

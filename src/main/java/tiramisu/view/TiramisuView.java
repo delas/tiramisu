@@ -18,7 +18,7 @@ public class TiramisuView extends JPanel {
     public TiramisuView(Tiramisu tiramisu) throws IOException {
         this.backdropView = new BackdropView(tiramisu.getBackdrop());
         this.activitiesLayerView = new ActivitiesLayerView(tiramisu.getProcessLayer());
-        this.edgesLayerView = new EdgesLayerView(tiramisu.getProcessLayer(), activitiesLayerView);
+        this.edgesLayerView = new EdgesLayerView(tiramisu.getProcessLayer(), activitiesLayerView, tiramisu.getConfiguration().getArrowColor());
 
         this.add(edgesLayerView);
         this.add(activitiesLayerView);

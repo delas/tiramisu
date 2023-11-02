@@ -1,13 +1,14 @@
 {
   "activities":
   [
-    {"pictogram":"examples\\entrance.png",  "label":"entrance", "x":640,"y":60},
-    {"pictogram":"examples\\living.png",    "label":"living",   "x":708,"y":500},
-    {"pictogram":"examples\\bed.png",       "label":"bedroom",  "x":36,"y":430},
-    {"pictogram":"examples\\bathroom.png",  "label":"bathroom", "x":35,"y":70},
-    {"pictogram":"examples\\kitchen.png",   "label":"kitchen",  "x":775,"y":72}
+    {"pictogram":"examples\\example1\\entrance.png",  "label":"entrance", "x":640,"y":60},
+    {"pictogram":"examples\\example1\\living.png",    "label":"living",   "x":708,"y":500},
+    {"pictogram":"examples\\example1\\bed.png",       "label":"bedroom",  "x":36,"y":430},
+    {"pictogram":"examples\\example1\\bathroom.png",  "label":"bathroom", "x":35,"y":70},
+    {"pictogram":"examples\\example1\\kitchen.png",   "label":"kitchen",  "x":775,"y":72}
   ],
   "backdrop":{
-    "picture":"examples\\backdrop.png"
-  }
+    "picture":"examples\\example1\\backdrop.png"
+  },
+  "arrowColor": "#000000"
 }
